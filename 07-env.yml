@@ -9,7 +9,7 @@ spec:
     image: nginx
     ports:
     - containerPort: 80  #only for documentation purpose like EXPOSE 80 in Dockerfile
-    environment:
+    env:
       - name: ENVIRONMENT
         value: dev  
       - name : Project

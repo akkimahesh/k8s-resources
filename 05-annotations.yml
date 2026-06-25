@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx
+  name: annotations
   namespace: roboshop
   #no limit on the number of annotations, but it is recommended to keep it less than 10
   #external tools can use annotations to store and retrieve metadata about the object

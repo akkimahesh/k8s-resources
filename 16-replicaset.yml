@@ -11,7 +11,7 @@ metadata:
       tier: frontend
 spec:
   # modify replicas according to your case
-  replicas: 3
+  replicas: 10
   selector:
   # this selects the pods that which pod will have same label as this selector
     matchLabels:

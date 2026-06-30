@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+# these are the metadata of replicaset, name and labels, here we can give any name to replicaset and labels are used to identify the replicaset.
+# replicaset labels and matchLabels should not be same.
+metadata:
+  name: replicaset-nginx
+  labels:
+    app: roboshop
+    tier: frontend
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+  # this selects the pods that which pod will have same label as this selector
+    matchLabels:
+      project: roboshop-demo
+      infrastructure: eks
+      environment: dev
+      tier: frontend
+  #This is pod definition, pod is subset of replicaset, 
+  template:
+    metadata:
+      labels:
+      project: roboshop-demo
+      infrastructure: eks
+      environment: dev
+      tier: frontend
+    spec:
+      containers:
+      - name: nginx
+        image: nginx

@@ -5,8 +5,10 @@ kind: ReplicaSet
 metadata:
   name: replicaset-nginx
   labels:
-    app: roboshop
-    tier: frontend
+      project: roboshop-demo
+      infrastructure: eks
+      environment: dev
+      tier: frontend
 spec:
   # modify replicas according to your case
   replicas: 3

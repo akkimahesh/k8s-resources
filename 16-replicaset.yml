@@ -4,6 +4,7 @@ kind: ReplicaSet
 # replicaset labels and matchLabels should not be same.
 metadata:
   name: replicaset-nginx
+  namespace: roboshop
   labels:
       project: roboshop-demo
       infrastructure: eks

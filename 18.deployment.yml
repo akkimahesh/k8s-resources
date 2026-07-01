@@ -9,7 +9,7 @@ metadata:
       environment: dev
       tier: frontend
   annotations:
-    kubernetes.io/change-cause: "latest"
+    kubernetes.io/change-cause: "stable-trixie-perl"
 spec:
   replicas: 3
   selector:
@@ -28,6 +28,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:latest
+        image: nginx:stable-trixie-perl
         ports:
         - containerPort: 80

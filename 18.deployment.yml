@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: scutiarts-deployment
+  name: nginx-deployment
   namespace: roboshop
   labels:
       project: roboshop-demo
@@ -9,7 +9,7 @@ metadata:
       environment: dev
       tier: frontend
   annotations:
-    kubernetes.io/change-cause: "scutiarts"
+    kubernetes.io/change-cause: "nginx:stable-trixie-perl"
 spec:
   replicas: 3
   selector:
@@ -27,7 +27,7 @@ spec:
         tier: frontend
     spec:
       containers:
-      - name: scutiarts
-        image: akkimahesh/scutiarts:latest
+      - name: nginx
+        image: nginx:stable-trixie-perl
         ports:
-        - containerPort: 8000
+        - containerPort: 80

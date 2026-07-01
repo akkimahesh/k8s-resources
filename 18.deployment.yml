@@ -21,10 +21,10 @@ spec:
   template:
     metadata:
       labels:
-      project: roboshop-demo
-      infrastructure: eks
-      environment: dev
-      tier: frontend
+        project: roboshop-demo
+        infrastructure: eks
+        environment: dev
+        tier: frontend
     spec:
       containers:
       - name: nginx

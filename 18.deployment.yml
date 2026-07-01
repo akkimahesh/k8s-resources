@@ -9,7 +9,7 @@ metadata:
       environment: dev
       tier: frontend
   annotations:
-    deployment.kubernetes.io/revision: "latest"
+    kubernetes.io/change-cause: "latest"
 spec:
   replicas: 3
   selector:

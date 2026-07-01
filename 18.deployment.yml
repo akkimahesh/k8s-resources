@@ -30,4 +30,4 @@ spec:
       - name: scutiarts
         image: akkimahesh/scutiarts:latest
         ports:
-        - containerPort: 3000
+        - containerPort: 8000

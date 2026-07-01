@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  namespace: roboshop
+  labels:
+      project: roboshop-demo
+      infrastructure: eks
+      environment: dev
+      tier: frontend
+  annotations:
+    deployment.kubernetes.io/revision: "latest"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      project: roboshop-demo
+      infrastructure: eks
+      environment: dev
+      tier: frontend
+  template:
+    metadata:
+      labels:
+      project: roboshop-demo
+      infrastructure: eks
+      environment: dev
+      tier: frontend
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80

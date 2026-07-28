@@ -1,0 +1,25 @@
+#here two containers are sharing the same volume called nginx-logs. The first container is writing logs to the volume and the second container is reading the logs from the volume. The volume is of type emptyDir and it has a size limit of 500Mi. The second container is a sidecar container that is used to read the logs from the volume. The second container is using the command "sleep 2000" to keep it running for a long time so that we can read the logs from the first container.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-pd
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    volumeMounts:
+    - mountPath: /var/log/nginx
+      name: nginx-logs
+  - image: almalinux:9  
+    name: almalinux #sidecar container
+    command: ["sleep", "2000"]
+    volumeMounts:
+    - mountPath: /mnt/nginx-logs
+      name: nginx-logs
+      readOnly: true
+  # This is at the pod level
+  # create a volume called nginx-logs and it is of type emptyDir
+  volumes:
+  - name: nginx-logs
+    emptyDir:
+      sizeLimit: 500Mi

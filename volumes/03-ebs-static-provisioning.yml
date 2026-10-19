@@ -36,8 +36,14 @@ spec:
     volumeMounts:
     - name: html-data
       mountPath: /usr/share/nginx/html
-  nodeSelector:
-    topology.kubernetes.io/zone: us-east-1c
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: topology.kubernetes.io/zone
+          operator: In
+          values:
+          - us-east-1c
   volumes:
   - name: html-data
     persistentVolumeClaim:
